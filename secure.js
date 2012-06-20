@@ -12,13 +12,10 @@ var bouncy = require('bouncy');
 bouncy(options, function (req, bounce) {
     console.log(req.headers);
 
-    //if (req.headers['x-forwarded-proto'] == 'https') {
-    //    bounce(8001);
-    //}
-    if (req.headers.host === 'secure.airasoul.net') {
-        bounce(8001);
+    if (req.headers.host === 'www.airasoul.net') {
+        bounce(8080);
     }
-    else if (req.headers.host === 'www.airasoul.net') {
+    else if (req.headers.host === 'nodeplates.airasoul.net') {
         bounce(8002);
     }
 }).listen(8000);
